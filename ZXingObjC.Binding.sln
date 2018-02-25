@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZXingObjC.OSX.Binding", "ZXingObjC.OSX.Binding\ZXingObjC.OSX.Binding.csproj", "{91D2BEEF-8D86-4953-9E0A-A3FC77156E0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZXingObjC.OSX.Binding.Test", "ZXingObjC.OSX.Binding.Test\ZXingObjC.OSX.Binding.Test.csproj", "{D81976D6-01A3-4F50-AA22-240927680F46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91D2BEEF-8D86-4953-9E0A-A3FC77156E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91D2BEEF-8D86-4953-9E0A-A3FC77156E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91D2BEEF-8D86-4953-9E0A-A3FC77156E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91D2BEEF-8D86-4953-9E0A-A3FC77156E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81976D6-01A3-4F50-AA22-240927680F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81976D6-01A3-4F50-AA22-240927680F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81976D6-01A3-4F50-AA22-240927680F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81976D6-01A3-4F50-AA22-240927680F46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
