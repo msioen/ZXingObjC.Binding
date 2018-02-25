@@ -27,6 +27,64 @@ The following barcodes are currently supported for both encoding and decoding:
 
 ZXingObjC currently has feature parity with ZXing version 3.0.
 
+## Usage
+
+Encoding:
+
+```c#
+NSError error;
+var writer = new ZXMultiFormatWriter();
+var result = writer.Format(
+    contents: "A string to encode",
+    format: ZXBarcodeFormat.QRCode,
+    width: 500,
+    height: 500,
+    error: out error
+);
+
+if (result != null)
+{
+    var image = ZXImage.ImageWithMatrix(result).Cgimage;
+}
+else
+{
+    var errorMessage = error.LocalizedDescription;
+}
+```
+
+Decoding:
+
+```c#
+var source = new ZXCGImageLuminanceSource(imageToDecode);
+var bitmap = ZXBinaryBitmap.BinaryBitmapWithBinarizer(ZXHybridBinarizer.BinarizerWithSource(source));
+
+NSError error;
+
+// There are a number of hints we can give to the reader, including
+// possible formats, allowed lengths, and the string encoding.
+var hints = new ZXDecodeHints();
+
+var reader = new ZXMultiFormatReader();
+var result = reader.Decode(image: bitmap, hints: hints, error: out error);
+
+if (result != null)
+{
+    // The coded result as a string. The raw data can be accessed with
+    // result.rawBytes and result.length.
+    var text = result.Text;
+    var format = result.BarcodeFormat;
+    Console.WriteLine($"scanned code with format {format} and content {text}");
+
+    return text;
+}
+else
+{
+    // Use error to determine why we didn't get a result, such as a barcode
+    // not being found, an invalid checksum, or a format inconsistency.
+    return null;
+}
+```
+
 ## License
 
 ZXingObjC is available under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html).

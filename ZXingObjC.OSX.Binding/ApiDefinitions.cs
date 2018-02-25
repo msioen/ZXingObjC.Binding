@@ -40,9 +40,9 @@ namespace ZXingObjC.OSX.Binding
         [Export("hints", ArgumentSemantic.Strong)]
         ZXDecodeHints Hints { get; set; }
 
-        //// @property (assign, nonatomic) CGImageRef lastScannedImage;
-        //[Export("lastScannedImage", ArgumentSemantic.Assign)]
-        //unsafe CGImage LastScannedImage { get; set; }
+        // @property (assign, nonatomic) CGImageRef lastScannedImage;
+        [Export("lastScannedImage", ArgumentSemantic.Assign)]
+        unsafe CGImage LastScannedImage { get; set; }
 
         // @property (assign, nonatomic) BOOL invert;
         [Export("invert")]
@@ -215,15 +215,15 @@ namespace ZXingObjC.OSX.Binding
     [BaseType(typeof(ZXLuminanceSource))]
     interface ZXCGImageLuminanceSource
     {
-        //// +(CGImageRef)createImageFromBuffer:(CVImageBufferRef)buffer __attribute__((cf_returns_retained));
-        //[Static]
-        //[Export("createImageFromBuffer:")]
-        //unsafe CGImage CreateImageFromBuffer(CVImageBuffer buffer);
+        // +(CGImageRef)createImageFromBuffer:(CVImageBufferRef)buffer __attribute__((cf_returns_retained));
+        [Static]
+        [Export("createImageFromBuffer:")]
+        unsafe CGImage CreateImageFromBuffer(CVImageBuffer buffer);
 
-        //// +(CGImageRef)createImageFromBuffer:(CVImageBufferRef)buffer left:(size_t)left top:(size_t)top width:(size_t)width height:(size_t)height __attribute__((cf_returns_retained));
-        //[Static]
-        //[Export("createImageFromBuffer:left:top:width:height:")]
-        //unsafe CGImage CreateImageFromBuffer(CVImageBuffer buffer, nuint left, nuint top, nuint width, nuint height);
+        // +(CGImageRef)createImageFromBuffer:(CVImageBufferRef)buffer left:(size_t)left top:(size_t)top width:(size_t)width height:(size_t)height __attribute__((cf_returns_retained));
+        [Static]
+        [Export("createImageFromBuffer:left:top:width:height:")]
+        unsafe CGImage CreateImageFromBuffer(CVImageBuffer buffer, nuint left, nuint top, nuint width, nuint height);
 
         // -(id)initWithZXImage:(ZXImage *)image left:(size_t)left top:(size_t)top width:(size_t)width height:(size_t)height;
         [Export("initWithZXImage:left:top:width:height:")]
@@ -233,38 +233,38 @@ namespace ZXingObjC.OSX.Binding
         [Export("initWithZXImage:")]
         IntPtr Constructor(ZXImage image);
 
-        //// -(id)initWithCGImage:(CGImageRef)image left:(size_t)left top:(size_t)top width:(size_t)width height:(size_t)height;
-        //[Export("initWithCGImage:left:top:width:height:")]
-        //unsafe IntPtr Constructor(CGImage image, nuint left, nuint top, nuint width, nuint height);
+        // -(id)initWithCGImage:(CGImageRef)image left:(size_t)left top:(size_t)top width:(size_t)width height:(size_t)height;
+        [Export("initWithCGImage:left:top:width:height:")]
+        unsafe IntPtr Constructor(CGImage image, nuint left, nuint top, nuint width, nuint height);
 
-        //// -(id)initWithCGImage:(CGImageRef)image;
-        //[Export("initWithCGImage:")]
-        //unsafe IntPtr Constructor(CGImage image);
+        // -(id)initWithCGImage:(CGImageRef)image;
+        [Export("initWithCGImage:")]
+        unsafe IntPtr Constructor(CGImage image);
 
-        //// -(id)initWithBuffer:(CVPixelBufferRef)buffer left:(size_t)left top:(size_t)top width:(size_t)width height:(size_t)height;
-        //[Export("initWithBuffer:left:top:width:height:")]
-        //unsafe IntPtr Constructor(CVPixelBuffer buffer, nuint left, nuint top, nuint width, nuint height);
+        // -(id)initWithBuffer:(CVPixelBufferRef)buffer left:(size_t)left top:(size_t)top width:(size_t)width height:(size_t)height;
+        [Export("initWithBuffer:left:top:width:height:")]
+        unsafe IntPtr Constructor(CVPixelBuffer buffer, nuint left, nuint top, nuint width, nuint height);
 
-        //// -(id)initWithBuffer:(CVPixelBufferRef)buffer;
-        //[Export("initWithBuffer:")]
-        //unsafe IntPtr Constructor(CVPixelBuffer buffer);
+        // -(id)initWithBuffer:(CVPixelBufferRef)buffer;
+        [Export("initWithBuffer:")]
+        unsafe IntPtr Constructor(CVPixelBuffer buffer);
 
-        //// -(CGImageRef)image;
-        //[Export("image")]
-        //unsafe CGImage Image { get; }
+        // -(CGImageRef)image;
+        [Export("image")]
+        unsafe CGImage Image { get; }
     }
 
     // @interface ZXImage : NSObject
     [BaseType(typeof(NSObject))]
     interface ZXImage
     {
-        //// @property (readonly, assign, nonatomic) CGImageRef cgimage;
-        //[Export("cgimage", ArgumentSemantic.Assign)]
-        //unsafe CGImage Cgimage { get; }
+        // @property (readonly, assign, nonatomic) CGImageRef cgimage;
+        [Export("cgimage", ArgumentSemantic.Assign)]
+        unsafe CGImage Cgimage { get; }
 
-        //// -(ZXImage *)initWithCGImageRef:(CGImageRef)image;
-        //[Export("initWithCGImageRef:")]
-        //unsafe IntPtr Constructor(CGImage image);
+        // -(ZXImage *)initWithCGImageRef:(CGImageRef)image;
+        [Export("initWithCGImageRef:")]
+        unsafe IntPtr Constructor(CGImage image);
 
         // -(ZXImage *)initWithURL:(const NSURL *)url;
         [Export("initWithURL:")]
@@ -283,10 +283,10 @@ namespace ZXingObjC.OSX.Binding
         [Export("imageWithMatrix:")]
         ZXImage ImageWithMatrix(ZXBitMatrix matrix);
 
-        //// +(ZXImage *)imageWithMatrix:(ZXBitMatrix *)matrix onColor:(CGColorRef)onColor offColor:(CGColorRef)offColor;
-        //[Static]
-        //[Export("imageWithMatrix:onColor:offColor:")]
-        //unsafe ZXImage ImageWithMatrix(ZXBitMatrix matrix, CGColor onColor, CGColor offColor);
+        // +(ZXImage *)imageWithMatrix:(ZXBitMatrix *)matrix onColor:(CGColorRef)onColor offColor:(CGColorRef)offColor;
+        [Static]
+        [Export("imageWithMatrix:onColor:offColor:")]
+        unsafe ZXImage ImageWithMatrix(ZXBitMatrix matrix, CGColor onColor, CGColor offColor);
     }
 
     // @interface ZXBitArray : NSObject <NSCopying>
@@ -793,7 +793,7 @@ namespace ZXingObjC.OSX.Binding
         // +(id)binarizerWithSource:(ZXLuminanceSource *)source;
         [Static]
         [Export("binarizerWithSource:")]
-        NSObject BinarizerWithSource(ZXLuminanceSource source);
+        ZXBinarizer BinarizerWithSource(ZXLuminanceSource source);
 
         // -(ZXBitArray *)blackRow:(int)y row:(ZXBitArray *)row error:(NSError **)error;
         [Export("blackRow:row:error:")]
@@ -807,28 +807,38 @@ namespace ZXingObjC.OSX.Binding
         [Export("createBinarizer:")]
         ZXBinarizer CreateBinarizer(ZXLuminanceSource source);
 
-        //// -(CGImageRef)createImage __attribute__((cf_returns_retained));
-        //[Export("createImage")]
-        //unsafe CGImage CreateImage { get; }
+        // -(CGImageRef)createImage __attribute__((cf_returns_retained));
+        [Export("createImage")]
+        unsafe CGImage CreateImage { get; }
     }
 
     // @interface ZXGlobalHistogramBinarizer : ZXBinarizer
     [BaseType(typeof(ZXBinarizer))]
     interface ZXGlobalHistogramBinarizer
     {
+        [Static]
+        [Export("binarizerWithSource:")]
+        ZXGlobalHistogramBinarizer BinarizerWithSource(ZXLuminanceSource source);
+
         // -(ZXBitArray *)blackRow:(int)y row:(ZXBitArray *)row error:(NSError **)error;
         [Export("blackRow:row:error:")]
         ZXBitArray BlackRow(int y, ZXBitArray row, out NSError error);
 
         // -(ZXBinarizer *)createBinarizer:(ZXLuminanceSource *)source;
         [Export("createBinarizer:")]
-        ZXBinarizer CreateBinarizer(ZXLuminanceSource source);
+        ZXGlobalHistogramBinarizer CreateBinarizer(ZXLuminanceSource source);
     }
 
     // @interface ZXHybridBinarizer : ZXGlobalHistogramBinarizer
     [BaseType(typeof(ZXGlobalHistogramBinarizer))]
     interface ZXHybridBinarizer
     {
+        [Static]
+        [Export("binarizerWithSource:")]
+        ZXHybridBinarizer BinarizerWithSource(ZXLuminanceSource source);
+
+        [Export("createBinarizer:")]
+        ZXHybridBinarizer CreateBinarizer(ZXLuminanceSource source);
     }
 
     // @interface ZXIntArray : NSObject <NSCopying>
@@ -1042,7 +1052,7 @@ namespace ZXingObjC.OSX.Binding
         // +(id)binaryBitmapWithBinarizer:(ZXBinarizer *)binarizer;
         [Static]
         [Export("binaryBitmapWithBinarizer:")]
-        NSObject BinaryBitmapWithBinarizer(ZXBinarizer binarizer);
+        ZXBinaryBitmap BinaryBitmapWithBinarizer(ZXBinarizer binarizer);
 
         // -(ZXBitArray *)blackRow:(int)y row:(ZXBitArray *)row error:(NSError **)error;
         [Export("blackRow:row:error:")]
