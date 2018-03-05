@@ -1,10 +1,10 @@
-[![NuGet Status](http://img.shields.io/nuget/v/ZXingObjC.OSX.Binding.svg?style=flat)](https://www.nuget.org/packages/ZXingObjC.OSX.Binding/)
+OS X binding: [![NuGet Status](http://img.shields.io/nuget/v/ZXingObjC.OSX.Binding.svg?style=flat)](https://www.nuget.org/packages/ZXingObjC.OSX.Binding/)
+
+iOS binding: [![NuGet Status](http://img.shields.io/nuget/v/ZXingObjC.iOS.Binding.svg?style=flat)](https://www.nuget.org/packages/ZXingObjC.iOS.Binding/)
 
 # ZXingObjC.Binding
 
 Xamarin binding for the [ZXingObjC library](https://github.com/TheLevelUp/ZXingObjC)
-
-Current version only has bindings for the OS X build.
 
 # ZXingObjC
 

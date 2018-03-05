@@ -1,7 +1,11 @@
 using System.Runtime.InteropServices;
 using Foundation;
 
+#if __MACOS__
 namespace ZXingObjC.OSX.Binding
+#else
+namespace ZXingObjC.iOS.Binding
+#endif
 {
 	public enum ZXBarcodeFormat : uint
 	{

@@ -7,7 +7,11 @@ using Foundation;
 using ObjCRuntime;
 using ZXingObjC;
 
+#if __MACOS__
 namespace ZXingObjC.OSX.Binding
+#else
+namespace ZXingObjC.iOS.Binding
+#endif
 {
     // @interface ZXCapture : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate, CAAction, CALayerDelegate>
     [BaseType(typeof(NSObject))]

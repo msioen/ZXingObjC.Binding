@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>ZXingObjC.iOS.Binding</id>
+		<version>3.2.2.1</version>
+		<title>ZXingObjC - Xamarin iOS Binding</title>
+		<authors>Michiel Sioen</authors>
+		<owners>Michiel Sioen</owners>
+		<licenseUrl>https://github.com/msioen/ZXingObjC.Binding/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/msioen/ZXingObjC.Binding</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Barcode image processing library</description>
+		<tags>xamarin, xamarin.touch, qrcode, qr, barcode</tags>
+		<dependencies>
+		</dependencies>
+	</metadata>
+	<files>
+
+	<file src="..\ZXingObjC.iOS.Binding\bin\Release\ZXingObjC.iOS.Binding.dll" target="lib\Xamarin.iOS10\ZXingObjC.iOS.Binding.dll" />
+
+	</files>
+</package>
