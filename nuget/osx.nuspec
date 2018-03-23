@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata>
 		<id>ZXingObjC.OSX.Binding</id>
-		<version>3.2.2.1</version>
+		<version>3.2.2.2</version>
 		<title>ZXingObjC - Xamarin OS X Binding</title>
 		<authors>Michiel Sioen</authors>
 		<owners>Michiel Sioen</owners>

@@ -656,7 +656,7 @@ namespace ZXingObjC.iOS.Binding
 
         // @property (readonly, nonatomic, strong) NSArray * points;
         [Export("points", ArgumentSemantic.Strong)]
-        NSObject[] Points { get; }
+        ZXQRCodeFinderPattern[] Points { get; }
 
         // -(id)initWithBits:(ZXBitMatrix *)bits points:(NSArray *)points;
         [Export("initWithBits:points:")]
@@ -3822,7 +3822,7 @@ namespace ZXingObjC.iOS.Binding
 
 		// -(ZXDetectorResult *)detect:(ZXDecodeHints *)hints error:(NSError **)error;
 		[Export ("detect:error:")]
-		ZXDetectorResult Detect (ZXDecodeHints hints, out NSError error);
+        ZXDetectorResult Detect ([NullAllowed] ZXDecodeHints hints, out NSError error);
 
 		// -(ZXDetectorResult *)processFinderPatternInfo:(ZXQRCodeFinderPatternInfo *)info error:(NSError **)error;
 		[Export ("processFinderPatternInfo:error:")]
@@ -3839,11 +3839,15 @@ namespace ZXingObjC.iOS.Binding
 
 	// @interface ZXMultiDetector : ZXQRCodeDetector
 	[BaseType (typeof(ZXQRCodeDetector))]
+    [DisableDefaultCtor]
 	interface ZXMultiDetector
 	{
+        [Export("initWithImage:")]
+        IntPtr Constructor(ZXBitMatrix image);
+
 		// -(NSArray *)detectMulti:(ZXDecodeHints *)hints error:(NSError **)error;
 		[Export ("detectMulti:error:")]
-		NSObject[] DetectMulti (ZXDecodeHints hints, out NSError error);
+        ZXDetectorResult[] DetectMulti ([NullAllowed] ZXDecodeHints hints, out NSError error);
 	}
 
 	// @interface ZXQRCode : NSObject
